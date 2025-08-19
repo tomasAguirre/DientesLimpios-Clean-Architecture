@@ -9,6 +9,6 @@ namespace DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Consultas.ObtenerDet
     public class ConsultorioDetalleDTO
     {
         public Guid Id { get; set; }
-   ´    public required string Nombre { get; set;
+        public required string Nombre { get; set; }
     }
 }

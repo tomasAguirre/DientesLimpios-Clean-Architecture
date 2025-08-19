@@ -4,6 +4,7 @@ using DientesLimpios.Aplicacion.Contratos.Persistencia;
 using DientesLimpios.Aplicacion.Contratos.Repositorios;
 using DientesLimpios.Aplicacion.Excepciones;
 using DientesLimpios.Dominio.Entidades;
+using DientesLimpios.Dominio.Excepciones;
 using FluentValidation;
 using FluentValidation.Results;
 using NSubstitute;
@@ -43,6 +44,7 @@ public class CasoDeUsoCrearConsultorioTest
     }
 
     [TestMethod]
+    [ExpectedException(typeof(ExcepcionDeReglaDeNegocio))]
     public async Task Handle_ComandoNoValido_LanzarExcepcion()
     {
         var comando = new ComandoCrearConsultorio { Nombre = "" };
