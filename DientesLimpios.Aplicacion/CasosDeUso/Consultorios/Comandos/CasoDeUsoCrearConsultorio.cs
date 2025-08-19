@@ -27,11 +27,13 @@ namespace DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos
         }
         public async Task<Guid> Handle(ComandoCrearConsultorio comando) 
         {
+            #region
             //var resultadoValidacion = await this.validador.ValidateAsync(comando);
             //if(!resultadoValidacion.IsValid)
             //{
             //    throw new ExcepcionDeValidacion(resultadoValidacion);
             //}
+            #endregion
             var consultorio = new Consultorio(comando.Nombre);
             try
             {
