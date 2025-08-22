@@ -17,7 +17,7 @@ namespace DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos
     {
         private readonly IrepositorioConsultorios repositorio;
         private readonly IunidadDeTrabajo unidadDeTrabajo;
-        private readonly IValidator<ComandoCrearConsultorio> validador;
+       // private readonly IValidator<ComandoCrearConsultorio> validador;
 
         public CasoDeUsoCrearConsultorio(IrepositorioConsultorios repositorio, IunidadDeTrabajo unidadDeTrabajo)
         {
