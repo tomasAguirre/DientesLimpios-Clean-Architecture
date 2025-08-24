@@ -22,6 +22,7 @@ namespace DientesLimpios.Persistencia
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DientesLimpiosDBContext).Assembly);
+            //Eso permite que tome las configuraciones que nosotros creamos en mi solucion de aplicacion Persistencia 
         }
 
         public DbSet<Consultorio> Consultorios { get; set; }

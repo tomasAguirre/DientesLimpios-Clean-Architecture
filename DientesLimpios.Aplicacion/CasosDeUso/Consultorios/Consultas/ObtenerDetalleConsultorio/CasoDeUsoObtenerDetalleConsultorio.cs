@@ -28,7 +28,7 @@ namespace DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Consultas.ObtenerDet
             }
 
             //var dto = new ConsultorioDetalleDTO { Id = consultorio.Id, Nombre = consultorio.Nombre };
-            //return dto;
+            //return dto;  mapeareamos el DTO con MapeadoExtensions
             return consultorio.ADto();
         }
     }

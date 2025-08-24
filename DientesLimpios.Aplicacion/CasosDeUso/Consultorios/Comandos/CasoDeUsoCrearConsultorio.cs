@@ -28,6 +28,7 @@ namespace DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos
         public async Task<Guid> Handle(ComandoCrearConsultorio comando) 
         {
             #region
+            //Esta validacion se mueve a el constructor del consultorio
             //var resultadoValidacion = await this.validador.ValidateAsync(comando);
             //if(!resultadoValidacion.IsValid)
             //{
