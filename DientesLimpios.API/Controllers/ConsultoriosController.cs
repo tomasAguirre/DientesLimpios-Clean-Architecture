@@ -1,5 +1,7 @@
 ﻿using DientesLimpios.API.DTOs.Consultorios;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos.CrearConsultorio;
+using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Consultas.ObtenerDetalleConsultorio;
+using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Consultas.ObtenerListadoConsultorios;
 using DientesLimpios.Aplicacion.Utilidades.Mediador;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +17,23 @@ namespace DientesLimpios.API.Controllers
         {
             this.mediator = mediator;
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ConsultorioDetalleDTO>> Get(Guid id) 
+        {
+            var consulta = new ConsultaObtenerDetalleConsultorio { Id = id };
+            var resultado = await mediator.Send(consulta);
+            return resultado;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<ConsultorioListadoDTO>>> Get() 
+        {
+            var consulta = new ConsultaObtenerListadoConsultorios();
+            var resultado = await this.mediator.Send(consulta);
+            return resultado;
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Post(CrearConsultorioDTO crearConsultorioDTO)
