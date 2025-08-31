@@ -15,3 +15,11 @@ Content-type: application/json
 {
     "nombre" : "Consultorio B"
 }
+###
+
+Put {{DientesLimpios.API_HostAddress}}/0198e95f-8aac-7c59-907c-4de833300184
+Content-type: application/json
+
+{
+    "nombre" : "Consultorio B - Actualizado"
+}

@@ -9,4 +9,12 @@ namespace DientesLimpios.Aplicacion.Utilidades.Mediador
     public interface IRequest<TResponse>
     {
     }
+
+
+    /// <summary>
+    /// Class <c>IRequest</c> caso de uso que no retorna nada 
+    /// </summary>
+    public interface IRequest
+    {
+    }
 }
