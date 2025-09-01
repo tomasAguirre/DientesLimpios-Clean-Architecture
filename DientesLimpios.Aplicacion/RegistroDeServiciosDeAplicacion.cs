@@ -4,6 +4,7 @@ using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos.BorrarConsultor
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos.CrearConsultorio;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Consultas.ObtenerDetalleConsultorio;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Consultas.ObtenerListadoConsultorios;
+using DientesLimpios.Aplicacion.CasosDeUso.Pacientes.Comandos.CrearPaciente;
 using DientesLimpios.Aplicacion.Utilidades.Mediador;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -22,6 +23,7 @@ namespace DientesLimpios.Aplicacion
             services.AddTransient<IMediator, MediadorSimple>();
             services.AddScoped<IRequestHandler<ComandoCrearConsultorio, Guid>,
                                                 CasoDeUsoCrearConsultorio>();
+
             services.AddScoped<IRequestHandler<ConsultaObtenerDetalleConsultorio, ConsultorioDetalleDTO>,
                                                 CasoDeUsoObtenerDetalleConsultorio>();
 
@@ -34,6 +36,8 @@ namespace DientesLimpios.Aplicacion
 
 
             services.AddScoped<IRequestHandler<ComandoBorrarConsultorio>, CasoDeUsoBorrarConsultorio>();
+
+            services.AddScoped<IRequestHandler<ComandoCrearPaciente, Guid>, CasoDeUsoCrearPaciente>();
 
             return services;
         }

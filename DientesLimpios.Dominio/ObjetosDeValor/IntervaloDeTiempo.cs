@@ -13,6 +13,12 @@ namespace DientesLimpios.Dominio.ObjetosDeValor
         public DateTime Inicio { get; }
         public DateTime Fin { get; }
 
+        //contructor sin parametros para que el entitiy framework pueda crear la tabla sin problemas 
+        private IntervaloDeTiempo()
+        {
+            
+        }
+
         public IntervaloDeTiempo(DateTime Inicio, DateTime Fin)
         {
             if (Inicio > Fin)

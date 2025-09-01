@@ -23,6 +23,12 @@ namespace DientesLimpios.Dominio.Entidades
         public Dentista? Dentista { get; private set; }
         public Consultorio? Consultorio { get; private set; }
 
+        //contructor sin parametros para que el entitiy framework pueda crear la tabla sin problemas 
+        private Cita()
+        {
+            
+        }
+
         public Cita(Guid pacienteId, Guid dentistaId, Guid consultorioId, IntervaloDeTiempo intervaloDeTiempo)
         {
 

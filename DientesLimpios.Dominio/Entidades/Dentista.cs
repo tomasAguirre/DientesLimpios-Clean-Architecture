@@ -15,6 +15,12 @@ namespace DientesLimpios.Dominio.Entidades
         public string Nombre { get; private set; } = null!;
         public Email Email { get; private set; } = null!;
 
+        //contructor sin parametros para que el entitiy framework pueda crear la tabla sin problemas 
+        private Dentista()
+        {
+            
+        }
+
         public Dentista(string nombre, Email email)
         {
             if (string.IsNullOrWhiteSpace(nombre))
