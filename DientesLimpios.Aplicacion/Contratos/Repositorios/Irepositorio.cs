@@ -10,6 +10,7 @@ namespace DientesLimpios.Aplicacion.Contratos.Repositorios
     {
         Task<T> ObtenerPorId(Guid id);
         Task<IEnumerable<T>> obtenerTodos();
+        Task<int> obtenerCantidadTotalDeRegistros();
         Task<T> agregar(T entidad);
         Task actualizar(T entidad);
         Task borrar(T entidad);

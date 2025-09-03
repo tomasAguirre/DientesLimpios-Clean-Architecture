@@ -6,6 +6,7 @@ using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Consultas.ObtenerDetalle
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Consultas.ObtenerListadoConsultorios;
 using DientesLimpios.Aplicacion.CasosDeUso.Pacientes.Comandos.CrearPaciente;
 using DientesLimpios.Aplicacion.CasosDeUso.Pacientes.Consultas.ObtenerListadoPacientes;
+using DientesLimpios.Aplicacion.Utilidades.Comunes;
 using DientesLimpios.Aplicacion.Utilidades.Mediador;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -40,7 +41,7 @@ namespace DientesLimpios.Aplicacion
 
             services.AddScoped<IRequestHandler<ComandoCrearPaciente, Guid>, CasoDeUsoCrearPaciente>();
 
-            services.AddScoped<IRequestHandler<ConsultaObtenerListadoPacientes, List<PacienteListadoDTO>>, 
+            services.AddScoped<IRequestHandler<ConsultaObtenerListadoPacientes, PaginadoDTO<PacienteListadoDTO>>, 
                                                             CasoDeUsoObtenerListadoPacientes>();
 
             return services;

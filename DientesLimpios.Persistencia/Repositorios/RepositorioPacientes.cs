@@ -1,5 +1,8 @@
-﻿using DientesLimpios.Aplicacion.Contratos.Repositorios;
+﻿using DientesLimpios.Aplicacion.CasosDeUso.Pacientes.Consultas.ObtenerListadoPacientes;
+using DientesLimpios.Aplicacion.Contratos.Repositorios;
 using DientesLimpios.Dominio.Entidades;
+using DientesLimpios.Persistencia.Utilidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +13,17 @@ namespace DientesLimpios.Persistencia.Repositorios
 {
     public class RepositorioPacientes : Repositorio<Paciente>, IRepositorioPacientes
     {
+        private readonly DientesLimpiosDBContext dBContext;
+
         public RepositorioPacientes(DientesLimpiosDBContext dBContext) : base(dBContext)
         {
+            this.dBContext = dBContext;
+        }
+
+        public async Task<IEnumerable<Paciente>> ObtenerFiltrado(FiltroPacienteDTO filtro)
+        {
+            return await this.dBContext.Pacientes.OrderBy(x => x.Nombre).
+                                            Paginar(filtro.Pagina, filtro.RegistrosPorPagina).ToListAsync();
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DientesLimpios.Aplicacion.CasosDeUso.Pacientes.Consultas.ObtenerListadoPacientes
+{
+    //para el paginado
+    public class FiltroPacienteDTO
+    {
+        public int Pagina { get; set; } = 1; //setear esto como 1 ya que sino el skip dara error
+        public int RegistrosPorPagina { get; set; } = 10;
+    }
+}
