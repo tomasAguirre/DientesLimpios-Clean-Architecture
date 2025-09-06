@@ -22,7 +22,19 @@ namespace DientesLimpios.Persistencia.Repositorios
 
         public async Task<IEnumerable<Paciente>> ObtenerFiltrado(FiltroPacienteDTO filtro)
         {
-            return await this.dBContext.Pacientes.OrderBy(x => x.Nombre).
+            var queryable = dBContext.Pacientes.AsQueryable();
+
+            if (!string.IsNullOrEmpty(filtro.Nombre))
+            {
+                queryable = queryable.Where(x => x.Nombre.Contains(filtro.Nombre));
+            }
+
+            if (!string.IsNullOrEmpty(filtro.Email)) 
+            {
+                queryable = queryable.Where(x => x.Nombre.Contains(filtro.Email));
+            }
+
+            return await queryable.OrderBy(x => x.Nombre).
                                             Paginar(filtro.Pagina, filtro.RegistrosPorPagina).ToListAsync();
         }
     }
