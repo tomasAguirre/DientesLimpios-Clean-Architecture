@@ -30,7 +30,7 @@ public class CasoDeUsoCrearConsultorioTest
     }
 
     [TestMethod]
-    public async Task Handle_ComandoValido_obtenerConsultorio()
+    public async Task Handle_ComandoValido_crearConsultorio()
     {
         var comando = new ComandoCrearConsultorio {Nombre = "Consultorio A" };
         var consultorioCreado = new Consultorio("Consultorio A");
