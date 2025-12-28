@@ -29,6 +29,7 @@ namespace DientesLimpios.API.Controllers
             HttpContext.InsertarInformacionEnCabecera(resultado.Total); //metodo extension para agregar info al httpcontext
             return resultado.Elementos;
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<PacienteDetalleDTO>> Get(Guid id) 
         {

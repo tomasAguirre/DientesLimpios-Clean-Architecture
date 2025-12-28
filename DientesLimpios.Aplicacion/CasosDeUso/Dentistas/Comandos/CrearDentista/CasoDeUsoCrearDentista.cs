@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace DientesLimpios.Aplicacion.CasosDeUso.Dentistas.Comandos.CrearDentista
 {
-    public class ComandoBorrarDentista : IRequestHandler<ComandoCrearDentista, Guid>
+    public class CasoDeUsoCrearDentista : IRequestHandler<ComandoCrearDentista, Guid>
     {
         private readonly IrepositorioDentista repositorioDentista;
         private readonly IunidadDeTrabajo unidadDeTrabajo;
 
-        public ComandoBorrarDentista(IrepositorioDentista repositorioDentista, IunidadDeTrabajo unidadDeTrabajo)
+        public CasoDeUsoCrearDentista(IrepositorioDentista repositorioDentista, IunidadDeTrabajo unidadDeTrabajo)
         {
             this.repositorioDentista = repositorioDentista;
             this.unidadDeTrabajo = unidadDeTrabajo;

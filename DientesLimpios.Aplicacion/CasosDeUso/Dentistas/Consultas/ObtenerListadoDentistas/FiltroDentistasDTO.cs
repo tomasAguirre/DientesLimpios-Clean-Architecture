@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DientesLimpios.Aplicacion.CasosDeUso.Dentistas.Consultas.ObtenerListadoDentistas
 {
-    public class FilstroDentistasDTO
+    public class FiltroDentistasDTO
     {
         public int Pagina { get; set; } = 1; //setear esto como 1 ya que sino el skip dara error
         public int RegistrosPorPagina { get; set; } = 10;

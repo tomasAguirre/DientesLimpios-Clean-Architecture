@@ -11,6 +11,6 @@ namespace DientesLimpios.Aplicacion.Contratos.Repositorios
 {
     public interface IrepositorioDentista : Irepositorio<Dentista>
     {
-        Task<IEnumerable<Dentista>> ObtenerFiltrado(FilstroDentistasDTO filtro);
+        Task<IEnumerable<Dentista>> ObtenerFiltrado(FiltroDentistasDTO filtro);
     }
 }

@@ -19,7 +19,7 @@ namespace DientesLimpios.Persistencia.Repositorios
             this.dBContext = dBContext;
         }
 
-        public async Task<IEnumerable<Dentista>> ObtenerFiltrado(FilstroDentistasDTO filtro)
+        public async Task<IEnumerable<Dentista>> ObtenerFiltrado(FiltroDentistasDTO filtro)
         {
             var queryable = dBContext.Dentistas.AsQueryable();
 
@@ -35,5 +35,6 @@ namespace DientesLimpios.Persistencia.Repositorios
 
             return await queryable.OrderBy(x => x.Nombre).Paginar(filtro.Pagina, filtro.RegistrosPorPagina).ToListAsync();
         }
+
     }
 }
