@@ -1,4 +1,6 @@
-﻿using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos;
+﻿using DientesLimpios.Aplicacion.CasosDeUso.Citas.Comandos.CrearCita;
+using DientesLimpios.Aplicacion.CasosDeUso.Citas.Consultas.ObtenerDetalleCita;
+using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos.ActualizarConsultorio;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos.BorrarConsultorio;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos.CrearConsultorio;
@@ -66,6 +68,10 @@ namespace DientesLimpios.Aplicacion
                                                 CasoDeUsoObtenerDetalleDentista>();
             services.AddScoped<IRequestHandler<ComandoActualizarDentista>, CasoDeUsoActualizarDentista>();
             services.AddScoped<IRequestHandler<ComandoBorrarDentista>, CasoDeUsoBorrarDentista>();
+
+            services.AddScoped<IRequestHandler<ComandoCrearCita, Guid>, CasoDeUsoCrearCita>();
+            services.AddScoped<IRequestHandler<ConsultaObtenerDetalleCita, CitaDetalleDTO>,
+                                                CasoDeUsoObtenerDetalleCita>();
             return services;
         }
     }

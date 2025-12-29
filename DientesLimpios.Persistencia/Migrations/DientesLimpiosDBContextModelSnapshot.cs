@@ -23,6 +23,48 @@ namespace DientesLimpios.Persistencia.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DientesLimpios.Dominio.Entidades.Cita", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ConsultorioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DentistaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("EstadoCita")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("PacienteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.ComplexProperty<Dictionary<string, object>>("intervaloDeTiempo", "DientesLimpios.Dominio.Entidades.Cita.intervaloDeTiempo#IntervaloDeTiempo", b1 =>
+                        {
+                            b1.IsRequired();
+
+                            b1.Property<DateTime>("Fin")
+                                .HasColumnType("datetime2")
+                                .HasColumnName("FechaFin");
+
+                            b1.Property<DateTime>("Inicio")
+                                .HasColumnType("datetime2")
+                                .HasColumnName("FechaInicio");
+                        });
+
+                    b.HasKey("id");
+
+                    b.HasIndex("ConsultorioId");
+
+                    b.HasIndex("DentistaId");
+
+                    b.HasIndex("PacienteId");
+
+                    b.ToTable("Citas");
+                });
+
             modelBuilder.Entity("DientesLimpios.Dominio.Entidades.Consultorio", b =>
                 {
                     b.Property<Guid>("Id")
@@ -91,6 +133,33 @@ namespace DientesLimpios.Persistencia.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pacientes");
+                });
+
+            modelBuilder.Entity("DientesLimpios.Dominio.Entidades.Cita", b =>
+                {
+                    b.HasOne("DientesLimpios.Dominio.Entidades.Consultorio", "Consultorio")
+                        .WithMany()
+                        .HasForeignKey("ConsultorioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DientesLimpios.Dominio.Entidades.Dentista", "Dentista")
+                        .WithMany()
+                        .HasForeignKey("DentistaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DientesLimpios.Dominio.Entidades.Paciente", "Paciente")
+                        .WithMany()
+                        .HasForeignKey("PacienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Consultorio");
+
+                    b.Navigation("Dentista");
+
+                    b.Navigation("Paciente");
                 });
 #pragma warning restore 612, 618
         }
