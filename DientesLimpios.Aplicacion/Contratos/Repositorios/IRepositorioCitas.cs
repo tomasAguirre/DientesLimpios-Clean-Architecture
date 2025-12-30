@@ -1,4 +1,5 @@
-﻿using DientesLimpios.Dominio.Entidades;
+﻿using DientesLimpios.Aplicacion.CasosDeUso.Citas.Consultas.ObtenerListadoCitas;
+using DientesLimpios.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace DientesLimpios.Aplicacion.Contratos.Repositorios
     {
         Task<bool> ExisteCitaSolapada(Guid Dentista, DateTime inicio, DateTime fin);
         new Task<Cita> ObtenerPorId(Guid id);
+        Task<IEnumerable<Cita>> ObtenerFiltrado(FiltroCitasDTO filtroCitasDTO);
     }
 }

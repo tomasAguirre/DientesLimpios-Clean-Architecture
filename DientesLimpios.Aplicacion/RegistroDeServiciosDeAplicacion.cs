@@ -1,5 +1,6 @@
 ﻿using DientesLimpios.Aplicacion.CasosDeUso.Citas.Comandos.CrearCita;
 using DientesLimpios.Aplicacion.CasosDeUso.Citas.Consultas.ObtenerDetalleCita;
+using DientesLimpios.Aplicacion.CasosDeUso.Citas.Consultas.ObtenerListadoCitas;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos.ActualizarConsultorio;
 using DientesLimpios.Aplicacion.CasosDeUso.Consultorios.Comandos.BorrarConsultorio;
@@ -72,6 +73,9 @@ namespace DientesLimpios.Aplicacion
             services.AddScoped<IRequestHandler<ComandoCrearCita, Guid>, CasoDeUsoCrearCita>();
             services.AddScoped<IRequestHandler<ConsultaObtenerDetalleCita, CitaDetalleDTO>,
                                                 CasoDeUsoObtenerDetalleCita>();
+
+            services.AddScoped<IRequestHandler<ConsultaObtenerListadoCitas,List<CitaListadoDTO>>,
+                                    CasoDeUsoObtenerListadoCitas>();
             return services;
         }
     }
