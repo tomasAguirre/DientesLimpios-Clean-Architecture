@@ -1,4 +1,5 @@
 ﻿using DientesLimpios.API.DTOs.Citas;
+using DientesLimpios.Aplicacion.CasosDeUso.Citas.Comandos.CancelarCita;
 using DientesLimpios.Aplicacion.CasosDeUso.Citas.Comandos.CompletarCita;
 using DientesLimpios.Aplicacion.CasosDeUso.Citas.Comandos.CrearCita;
 using DientesLimpios.Aplicacion.CasosDeUso.Citas.Consultas.ObtenerDetalleCita;
@@ -53,6 +54,14 @@ namespace DientesLimpios.API.Controllers
         public async Task<IActionResult> Completar(Guid id) 
         {
             var consulta = new ComandoCompletarCita { Id = id };
+            await mediator.Send(consulta);
+            return Ok();
+        }
+
+        [HttpPost("{id}/cancelar")]
+        public async Task<IActionResult> Cancelar(Guid id) 
+        {
+            var consulta = new ComandoCancelarCita { Id = id };
             await mediator.Send(consulta);
             return Ok();
         }
